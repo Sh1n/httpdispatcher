@@ -1,6 +1,6 @@
 var util = require('util');
 var HttpDispatcher = function() {
-	this.listeners = { get: [ ], post: [ ] };
+	this.listeners = { get: [ ], post: [ ], put: [ ], delete: [ ] };
 	this.filters = { before: [ ], after: [ ] };
 	this.errorListener = function(req, res) { 
 		res.writeHead(404);
@@ -26,6 +26,12 @@ HttpDispatcher.prototype.onGet = function(url, cb) {
 }	
 HttpDispatcher.prototype.onPost = function(url, cb) {
 	this.on('post', url, cb);
+}
+HttpDispatcher.prototype.onPut = function(url, cb) {
+	this.on('put', url, cb);
+}
+HttpDispatcher.prototype.onDelete = function(url, cb) {
+	this.on('delete', url, cb);
 }
 HttpDispatcher.prototype.onError = function(cb) {
 	this.errorListener = cb;
