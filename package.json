@@ -1,17 +1,28 @@
 {
+  "name": "httpdispatcher+",
+  
   "author": {
-    "name": "Alberto Bottarini",
-    "url": "http://www.albertobottarini.com",
-    "email": "alberto.bottarini@gmail.com"
+    "name": "Francesco Shin Bux",
+    "url": "http://www.linkedin.com/in/francescobux",
+    "email": "shinsensei@gmail.com"
   },
+  
+  "contributors": [
+     {
+     	"name": "Alberto Bottarini",
+    	"url": "http://www.albertobottarini.com",
+    	"email": "alberto.bottarini@gmail.com"
+     }
+  ],
+
   "dependencies": {
       "mime": ">=1.2.5"
   },
-  "description": "A simple class allows developer to have a clear dispatcher for dynamic pages and static resources.",
+  "description": "A simple class allows developer to have a clear dispatcher for dynamic pages and static resources. It supports GET, POST, PUT and DELETE methods.",
   "devDependencies": {},
-  "keywords": ["util", "httpdispatcher", "dispatcher"],
+  "keywords": ["controller", "httpdispatcher+", "util", "httpdispatcher", "dispatcher"],
   "main": "httpdispatcher.js",
-  "name": "httpdispatcher",
-  "repository": {"url": "https://github.com/alberto-bottarini/httpdispatcher", "type": "git"},
+  "name": "httpdispatcher+",
+  "repository": {"url": "https://github.com/Sh1n/httpdispatcher", "type": "git"},
   "version": "0.4.0"
 }

@@ -1,8 +1,13 @@
-httpdispatcher - basic dispatcher for node.js
+httpdispatcher+
+forked from the basic dispatcher for node.js of alberto bottarini https://github.com/alberto-bottarini/httpdispatcher
 =======
 
 httpdispatcher is a simple class allows developer to have a clear dispatcher for dynamic pages and static resources.
 Classes http.ServerRequest and http.ServerResponse earns new params property containing a map of received HTTP parameters.
+
+This version comes with support for GET, PUT, POST, DELETE methods and controllers.
+
+
 Using httpdispatcher is pretty simple:
 
 	var dispatcher = require('./httpdispatcher');
@@ -18,6 +23,16 @@ Using httpdispatcher is pretty simple:
 		res.writeHead(200, {'Content-Type': 'text/plain'});
 		res.end('Page Two');
 	});
+
+	dispatcher.onPut("/page3", function(req, res) {
+                res.writeHead(201, {'Content-Type': 'text/plain'});
+                res.end('Created');
+        });
+
+	dispatcher.onDelete("/page4", function(req, res) {
+                res.writeHead(200, {'Content-Type': 'text/plain'});
+                res.end('OK');
+        });
 	
 	dispatcher.beforeFilter(/\//, function(req, res, chain) { //any url
 		console.log("Before filter");
@@ -41,7 +56,9 @@ Using httpdispatcher is pretty simple:
 	/*
 	GET /page1 => 'Page One'
 	POST /page2 => 'Page Two'
-	GET /page3 => 404
+	PUT /page3 => 'Created'
+	DELETE /page4 => 'OK'
+	GET /page5 => 404
 	GET /resources/images-that-exists.png => Image resource
 	GET /resources/images-that-does-not-exists.png => 404
 	*/
